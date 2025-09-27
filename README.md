@@ -108,6 +108,8 @@ For this lab, `use_lockfile` is set to false
 - Deploy the Infrastructure
   
   `terraform apply -var-file=dev.tfvars -auto-approve`
+
+  **If it asks to enter the "key-name", this is only to name key-pair file that will be stored on AWS and locally. This is used so Terraform can SSH into the proxy servers to provisin them as reverse-proxies 
   
 Now wait until the successful deployment message is displayed. Then wait a a few more minutes (5 minutes) until VMs and Load Balancers are running
 
