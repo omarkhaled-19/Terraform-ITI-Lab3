@@ -27,6 +27,7 @@ refer to [Terraform AWS authentication](https://registry.terraform.io/providers/
 
 
 ## 🗂  Project Structure
+```bash
 ├── backend.tf # Remote state backend config
 ├── dev.tfvars # Variable values for dev environment
 ├── main.tf # Root Terraform configuration
@@ -37,19 +38,8 @@ refer to [Terraform AWS authentication](https://registry.terraform.io/providers/
 │ ├── ec2/ # EC2 instance(s) module
 │ ├── loadbalancer/ # Load balancer module
 │ ├── security/ # Security groups module
-│ └── vpc/ # VPC networking module: including subnets, gateways, etc.. 
-
-├── backend.tf          # Remote state backend config
-├── dev.tfvars          # Variable values for dev environment
-├── main.tf             # Root Terraform configuration
-├── outputs.tf          # Output definitions
-├── variables.tf        # Input variables
-├── README.md           # Project documentation
-└── modules/            # Reusable Terraform modules
-    ├── ec2/            # EC2 instance(s) module
-    ├── loadbalancer/   # Load balancer module
-    ├── security/       # Security groups module
-    └── vpc/            # VPC networking module (subnets, gateways, etc.)
+│ └── vpc/ # VPC networking module: including subnets, gateways, etc..
+```
 
 ## 📦 Remote State Storage with S3
 
