@@ -28,17 +28,32 @@ refer to [Terraform AWS authentication](https://registry.terraform.io/providers/
 
 ## 🗂  Project Structure
 ```bash
-├── backend.tf # Remote state backend config
-├── dev.tfvars # Variable values for dev environment
-├── main.tf # Root Terraform configuration
-├── outputs.tf # Output definitions
-├── variables.tf # Input variables
-├── README.md # Project documentation
-├── modules/ # Reusable Terraform modules
-│ ├── ec2/ # EC2 instance(s) module
-│ ├── loadbalancer/ # Load balancer module
-│ ├── security/ # Security groups module
-│ └── vpc/ # VPC networking module: including subnets, gateways, etc..
+── backend.tf
+├── dev.tfvars
+├── main.tf
+├── outputs.tf
+├── variables.tf
+├── modules
+│   ├── ec2-backend
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── ec2-proxy
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── loadbalancer
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   ├── security
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
+│   └── vpc
+│       ├── main.tf
+│       ├── outputs.tf
+│       └── varibles.tf
 ```
 
 ## 📦 Remote State Storage with S3
@@ -73,3 +88,31 @@ terraform {
 }
 ```
 For this lab, `use_lockfile` is set to false
+
+
+## Terrform Workspace
+- In the root directory, create a new workspace called "dev"
+`terraform workspace new dev`
+- Select the new dev workspace to create the infrastructure in
+`terraform workspace select dev`
+
+## Create the infrastructure
+- In the root directory, initialize Terraform to start downloading the provider plugins, etc..
+  `terraform init`
+- Create a terraform plan to make sure no errors are occuring
+  `terraform plan -var-file=def.tfvars`
+- Deploy the Infrastructure
+  `terraform apply -var-file=dev.tfvars -auto-approve`
+Now wait until the successful deployment message is displayed. Then wait a a few more minutes (5 minutes) until VMs and Load Balancers are running
+
+
+
+
+## Test the infrastructure
+ - After Deployment, take public load balancer dns name and type it in any browser as follows:
+    `http://<public-lb-dns-name>
+
+
+That is it !
+Thanks !!
+
