@@ -98,19 +98,23 @@ For this lab, `use_lockfile` is set to false
 
 ## Create the infrastructure
 - In the root directory, initialize Terraform to start downloading the provider plugins, etc..
+
   `terraform init`
+  
 - Create a terraform plan to make sure no errors are occuring
+
   `terraform plan -var-file=def.tfvars`
+  
 - Deploy the Infrastructure
+  
   `terraform apply -var-file=dev.tfvars -auto-approve`
+  
 Now wait until the successful deployment message is displayed. Then wait a a few more minutes (5 minutes) until VMs and Load Balancers are running
-
-
 
 
 ## Test the infrastructure
  - After Deployment, take public load balancer dns name and type it in any browser as follows:
-    `http://<public-lb-dns-name>
+    `http://<public-lb-dns-name>`
 
 
 That is it !
