@@ -29,7 +29,7 @@ refer to [Terraform AWS authentication](https://registry.terraform.io/providers/
 ## 🗂  Project Structure
 ```bash
 ── backend.tf
-├── dev.tfvars
+├── dev.tfvars #Use this to change the names of the resources as needed
 ├── main.tf
 ├── outputs.tf
 ├── variables.tf
@@ -117,6 +117,10 @@ Now wait until the successful deployment message is displayed. Then wait a a few
 ## Test the infrastructure
  - After Deployment, take public load balancer dns name and type it in any browser as follows:
     `http://<public-lb-dns-name>`
+
+
+
+#### Use the 'dev.tfvars' file to edit the name of the resources as you see fit
 
 
 That is it !
